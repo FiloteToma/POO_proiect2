@@ -5,7 +5,7 @@
 #include "jucatori.h"
 void Jucatori::afis()
 {
-    std::cout<<"Nume: "<<nume<<" , Salariu Club: "<< salariu_club<<"Salariu_sponsor : "<<salariu_sponsor<<std::endl;
+    std::cout<<"Nume: "<<nume<<" , Salariu Club: "<< salariu_club;
 }
 const int& Jucatori::getSalariu()
 {

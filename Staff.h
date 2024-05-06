@@ -27,7 +27,7 @@ public:
     const  std::string &getNume() const {
         return angajat->getNume();
     }
-
+    const int &getAptitudini();
     ~Staff() = default;
 };
 #endif //STAFF_H

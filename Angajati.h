@@ -22,7 +22,6 @@ public:
     }
     int getSalariu() const { return salariu; }
     const std::string& getNume() const { return Nume; }
-
     virtual ~Angajati() = default;
 };
 

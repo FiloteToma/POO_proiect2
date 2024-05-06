@@ -3,7 +3,7 @@
 //
 
 #include "Echipe.h"
-
+#include "Angajati.h"
 #include "Bucatar.h"
 #include "jucatori.h"
 #include "Maseur.h"
@@ -29,25 +29,10 @@ void Echipe::TransferJucator(Echipe &echipa, const Jucatori &jucator)
     this->ConcediereJucator(jucator.getNumeJucator());
 
 }
-int Echipe::BugetStaff()
-{
-    int s;
-    s=0;
-    for(int i=0;i<NumarJucatori;i++)
-
-        s=s+staff[i].getSalariu();
-
-    if(dynamic_cast<Maseur>(angajat)) {
-
-    }else if(dynamic_cast<Bucatar>(angfajat)) {
-
-    }
-    return s;
-}
 int Echipe::BugetSalarii()
 {
     int s;
-    s=SalariuAntrenor+this->BugetStaff();
+    s=SalariuAntrenor+BugetStafff;
     for(int i=0;i<NumarJucatori;i++)
         s=s+jucatori[i].getSalariu();
 
@@ -109,4 +94,17 @@ const Jucatori& Echipe::getJucatori(const int &numar)
 const int& Echipe::getNumarJucatori()
 {
     return NumarJucatori;
+}
+const int& Echipe::getBugetStafff() {
+    return BugetStafff;
+}
+void Echipe::BugetStaff(Angajati &angajati) {
+    BugetStafff=BugetStafff+angajati.getSalariu();
+}
+void Echipe::ConcediereStaff(const int &numar) {
+    staff.erase(staff.begin()+numar-1);
+    NumarStaff--;
+}
+void Echipe::Aptitudini(const int &numar) {
+    staff[numar].aptitudini();
 }

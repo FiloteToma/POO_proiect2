@@ -9,6 +9,7 @@
 #include "Bucatar.h"
 #include "Echipe.h"
 #include "Maseur.h"
+#include "Echipe.h"
 
 void fct::meniu0()
 {
@@ -34,7 +35,8 @@ void fct::meniu2() {
     std::cout<<"2.Concediere membru staff"<<std::endl;
     std::cout<<"3.Afisare buget staff"<<std::endl;
     std::cout<<"4.Afisare staff"<<std::endl;
-    std::cout<<"5.Inapoi"<<std::endl<<std::endl;
+    std::cout<<"5.Afisare aptitudini staff"<<std::endl;
+    std::cout<<"6.Inapoi"<<std::endl<<std::endl;
     std::cout<<"Alege: "<<std::endl;
 
 }
@@ -171,6 +173,7 @@ void fct::meniu() {
                                     std::cout<<"2.Angajeaza un maseur!"<<std::endl;
                                     std::cout<<"3.Angajeaza un antrenor secundar!"<<std::endl;
                                     std::cout<<"4.Inapoi"<<std::endl;
+                                    std::cout<<"Alege: "<<std::endl;
                                     std::cin>>alg2;
                                     switch (alg2) {
                                         case 1: {
@@ -185,6 +188,7 @@ void fct::meniu() {
                                             std::cout<<"Introduceti numarul de preparate: ";
                                             std::cin>>preparate;
                                             angajati=new Bucatar(Nume,salariu,preparate);
+                                            echipa.BugetStaff(*angajati);
                                             Staff staff(angajati);
                                             echipa.AdaugareStaff(staff);
                                             break;
@@ -201,6 +205,7 @@ void fct::meniu() {
                                             std::cout<<"Introduceti grupa de muschi: ";
                                             std::cin>>preparate;
                                             angajati=new Maseur(Nume,salariu,preparate);
+                                            echipa.BugetStaff(*angajati);
                                             Staff staff(angajati);
                                             echipa.AdaugareStaff(staff);
                                             break;
@@ -217,6 +222,7 @@ void fct::meniu() {
                                             std::cout<<"Introduceti numarul de echipe la care a fost antrenor secund: ";
                                             std::cin>>preparate;
                                             angajati=new AntrenorSecund(Nume,salariu,preparate);
+                                            echipa.BugetStaff(*angajati);
                                             Staff staff(angajati);
                                             echipa.AdaugareStaff(staff);
                                             break;
@@ -227,24 +233,52 @@ void fct::meniu() {
                                         }
                                     }
                                 }
-
+                            break;
                             }
                         case 2:
                             {
-
+                            for(int i=0;i<echipa.getNumarStaff();i++) {
+                                std::cout<<i+1<<". ";
+                                echipa.getStaff(i).afisare();
+                            }
+                            std::cout<<"Ce membru al staff-ului doriti sa concediati?"<<std::endl;
+                            int i;
+                            std::cin>>i;
+                            echipa.ConcediereStaff(i);
+                            break;
                             }
                         case 3:
                             {
-                                std::cout<<echipa.BugetStaff()<<std::endl;
+                                std::cout<<echipa.getBugetStafff()<<std::endl;
                             break;
                             }
                         case 4:
                             {
-                            for(int i=0;i<echipa.getNumarStaff();i++)
+                            if(echipa.getNumarStaff()==0)
+                                std::cout<<"Nu exista staff!"<<std::endl;
+                            for(int i=0;i<echipa.getNumarStaff();i++) {
+                                std::cout<<i+1<<". ";
                                 echipa.getStaff(i).afisare();
+                            }
+                            std::cout<<std::endl;
                             break;
                             }
                         case 5:
+                            {
+                            if(echipa.getNumarStaff()==0)
+                                std::cout<<"Nu exista staff!"<<std::endl;
+                            for(int i=0;i<echipa.getNumarStaff();i++) {
+                                std::cout<<i+1<<". ";
+                                echipa.getStaff(i).afisare();
+                            }
+                            std::cout<<"Aptitudinile carui membru al staff-ului vrei sa le vezi?"<<std::endl;
+                            int i;
+                            std::cin>>i;
+                            echipa.Aptitudini(i-1);
+                            std::cout<<std::endl<<std::endl;
+                                break;
+                            }
+                        case 6:
                             {
                                 n= false;
                                 break;

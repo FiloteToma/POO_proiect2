@@ -5,6 +5,7 @@
 #include <vector>
 #include "Staff.h"
 #include "jucatori.h"
+#include "Angajati.h"
 
 
 class Echipe {
@@ -17,11 +18,12 @@ private:
     int NumarStaff;
     int NumarJucatori;
     std::vector<Jucatori> jucatori;
+    int BugetStafff;
 
 public:
 
-    Echipe(const std::string numeEchipa="",const std::string antrenor="",int salariu_antrenor=0,const std::vector<Staff>& staff={},int Numar_staf=0, int numarJucatori=0, const std::vector<Jucatori>& jucatori={}) : NumeEchipa(
-            numeEchipa),Antrenor(antrenor),SalariuAntrenor(salariu_antrenor),staff(staff),NumarStaff(Numar_staf), NumarJucatori(numarJucatori),jucatori(jucatori)  {}
+    Echipe(const std::string numeEchipa="",const std::string antrenor="",int salariu_antrenor=0,const std::vector<Staff>& staff={},int Numar_staf=0, int numarJucatori=0, const std::vector<Jucatori>& jucatori={}, int bugetStaf=0) : NumeEchipa(
+            numeEchipa),Antrenor(antrenor),SalariuAntrenor(salariu_antrenor),staff(staff),NumarStaff(Numar_staf), NumarJucatori(numarJucatori),jucatori(jucatori), BugetStafff(bugetStaf)  {}
 
 
     //constructor de afisare
@@ -67,8 +69,6 @@ public:
     void ConcediereJucator(const std::string &ConcediereJucator);
     //Transferul unui jucator de la o echipa la alta
     void TransferJucator(Echipe &echipa, const Jucatori &jucator);
-    //Suma salarilor staffului
-    int BugetStaff();
     //Suma salarilor angajatilor din club
     int BugetSalarii();
     //Suma salariilor jucatorilor
@@ -85,10 +85,14 @@ public:
     const int &getNumarStaff();
     const Jucatori &getJucatori(const int &numar);
     const int &getNumarJucatori();
+    const int &getBugetStafff();
+    void BugetStaff(Angajati &angajati);
     const Staff& getStaff(const int &numar) const
     {
         return staff[numar];
     }
+    void ConcediereStaff(const int &numar);
+    void Aptitudini(const int &numar);
 
 
 
