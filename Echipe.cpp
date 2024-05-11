@@ -7,45 +7,23 @@
 #include "Bucatar.h"
 #include "jucatori.h"
 #include "Maseur.h"
-
-void Echipe::AdaugareJucator(const Jucatori &jucator)
-{
+#include <memory>
+#include "Portar.h"
+void Echipe::AdaugareJucator(const Jucator &juc) {
     NumarJucatori++;
-    jucatori.push_back(jucator);
-}
-void Echipe::ConcediereJucator(const std::string &ConcediereJucator)
-{
-    for(int i=0;i<NumarJucatori;i++)
-        if(jucatori[i].getNumeJucator() == ConcediereJucator)
-        {
-            jucatori.erase(jucatori.begin()+i);
-            NumarJucatori--;
-            break;
-        }
-}
-void Echipe::TransferJucator(Echipe &echipa, const Jucatori &jucator)
-{
-    echipa.AdaugareJucator(jucator);
-    this->ConcediereJucator(jucator.getNumeJucator());
-
+    jucator.push_back(juc);
 }
 int Echipe::BugetSalarii()
 {
     int s;
     s=SalariuAntrenor+BugetStafff;
-    for(int i=0;i<NumarJucatori;i++)
-        s=s+jucatori[i].getSalariu();
+
 
     return s;
 }
 int Echipe::BugetSalariiJucatori()
 {
-    int s;
-    s=0;
-    for(int i=0;i<NumarJucatori;i++)
-        s=s+jucatori[i].getSalariu();
 
-    return s;
 }
 void Echipe::SchimbareAntrenor(const std::string &NumeAntrenor,const int &salariu)
 {
@@ -87,10 +65,11 @@ const int& Echipe::getNumarStaff()
 {
     return NumarStaff;
 }
-const Jucatori& Echipe::getJucatori(const int &numar)
+const Jucator& Echipe::getJucator(const int &numar)
 {
-    return jucatori[numar];
+
 }
+
 const int& Echipe::getNumarJucatori()
 {
     return NumarJucatori;

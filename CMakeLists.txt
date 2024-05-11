@@ -20,4 +20,16 @@ add_executable(POO_proiect2 main.cpp
         Maseur.h
         AntrenorSecund.cpp
         AntrenorSecund.h
+        CaltitatiJucatori.cpp
+        CaltitatiJucatori.h
+        Portar.cpp
+        Portar.h
+        Mijlocas.cpp
+        Mijlocas.h
+        Fundas.cpp
+        Fundas.h
+        Atacant.cpp
+        Atacant.h
+        Jucator.cpp
+        Jucator.h
 )

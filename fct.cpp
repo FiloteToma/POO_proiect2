@@ -6,10 +6,14 @@
 #include <iostream>
 
 #include "AntrenorSecund.h"
+#include "Atacant.h"
 #include "Bucatar.h"
 #include "Echipe.h"
 #include "Maseur.h"
 #include "Echipe.h"
+#include "Fundas.h"
+#include "Mijlocas.h"
+#include "Portar.h"
 
 void fct::meniu0()
 {
@@ -302,30 +306,134 @@ void fct::meniu() {
                     {
                         case 1:
                         {
-                            Jucatori juc1;
-                            std::cin>>juc1;
-                            echipa.AdaugareJucator(juc1);
+                            int alg2;
+                                bool w= true;
+                                while (w) {
+                                    std::cout<<"1.Angajeaza un portar!"<<std::endl;
+                                    std::cout<<"2.Angajeaza un fundas!"<<std::endl;
+                                    std::cout<<"3.Angajeaza un mijlocas!"<<std::endl;
+                                    std::cout<<"4.Angajeaza un atacnt!"<<std::endl;
+                                    std::cout<<"5.Inapoi!"<<std::endl;
+                                    std::cout<<"Alege: "<<std::endl;
+                                    std::cin>>alg2;
+                                    switch (alg2) {
+                                        case 1: {
+                                            Portar *p;
+                                            std::string Nume;
+                                            std::cout<<"Introduceti numele: ";
+                                            std::cin>>Nume;
+                                            int salariu;
+                                            std::cout<<"Introduceti salariul: ";
+                                            std::cin>>salariu;
+                                            int dribling;
+                                            std::cout<<"Introduceti nivelul driblingului: ";
+                                            std::cin>>dribling;
+                                            int plonjare;
+                                            std::cout<<"Introduceti nivelul plonjarii: ";
+                                            std::cin>>plonjare;
+                                            int grip;
+                                            std::cout<<"Introduceti nivelul gripului: ";
+                                            std::cin>>grip;
+                                            p=new Portar(Nume,salariu,dribling,plonjare,grip);
+                                            p->NotaJucator();
+                                            echipa.AdaugareJucator(*p);
+                                            break;
+                                        }
+                                        case 2: {
+                                            Fundas *f;
+                                            std::string Nume;
+                                            std::cout<<"Introduceti numele: ";
+                                            std::cin>>Nume;
+                                            int salariu;
+                                            std::cout<<"Introduceti salariul: ";
+                                            std::cin>>salariu;
+                                            int dribling;
+                                            std::cout<<"Introduceti nivelul driblingului: ";
+                                            std::cin>>dribling;
+                                            int forta;
+                                            std::cout<<"Introduceti nivelul fortei: ";
+                                            std::cin>>forta;
+                                            int viteza;
+                                            std::cout<<"Introduceti nivelul vitezei: ";
+                                            std::cin>>viteza;
+                                            std::string picior;
+                                            std::cout<<"Introduceti piciorul princial: ";
+                                            std::cin>>picior;
+                                            f=new Fundas(Nume,salariu,dribling,viteza,forta);
+                                            f->NotaJucator();
+                                            Jucator juc(*f);
+                                            echipa.AdaugareJucator(juc);
+                                            break;
+                                        }
+                                        case 3: {
+                                            Mijlocas *m;
+                                            std::string Nume;
+                                            std::cout<<"Introduceti numele: ";
+                                            std::cin>>Nume;
+                                            int salariu;
+                                            std::cout<<"Introduceti salariul: ";
+                                            std::cin>>salariu;
+                                            int dribling;
+                                            std::cout<<"Introduceti nivelul driblingului: ";
+                                            std::cin>>dribling;
+                                            int forta;
+                                            std::cout<<"Introduceti nivelul fortei: ";
+                                            std::cin>>forta;
+                                            int viteza;
+                                            std::cout<<"Introduceti nivelul vitezei: ";
+                                            std::cin>>viteza;
+                                            std::string picior;
+                                            std::cout<<"Introduceti piciorul princial: ";
+                                            std::cin>>picior;
+                                            m=new Mijlocas(Nume,salariu,dribling,viteza,forta);
+                                            m->NotaJucator();
+                                            Jucator juc(*m);
+                                            echipa.AdaugareJucator(juc);
+                                            break;
+                                        }
+                                        case 4: {
+                                            Atacant *a;
+                                            std::string Nume;
+                                            std::cout<<"Introduceti numele: ";
+                                            std::cin>>Nume;
+                                            int salariu;
+                                            std::cout<<"Introduceti salariul: ";
+                                            std::cin>>salariu;
+                                            int dribling;
+                                            std::cout<<"Introduceti nivelul driblingului: ";
+                                            std::cin>>dribling;
+                                            int forta;
+                                            std::cout<<"Introduceti nivelul fortei: ";
+                                            std::cin>>forta;
+                                            int viteza;
+                                            std::cout<<"Introduceti nivelul vitezei: ";
+                                            std::cin>>viteza;
+                                            a=new Atacant(Nume,salariu,dribling,viteza,forta);
+                                            a->NotaJucator();
+                                            Jucator juc(*a);
+                                            echipa.AdaugareJucator(juc);
+                                            break;
+                                        }
+                                        case 5: {
+                                            w=false;
+                                            break;
+                                        }
+                                    }
+                                }
                             break;
                         }
                         case 2:
                         {
-                            std::string Nume;
-                            std::cout<<"Numele jucatorului pe care doresti sa il concediezi: ";
-                            std::cin>>Nume;
-                            echipa.ConcediereJucator(Nume);
-                            break;
+
 
                         }
                         case 3:
                         {
-                            std::cout<<"Bugetul pentru salariul jucatorilor este: "<<echipa.BugetSalariiJucatori()<<std::endl;
-                            break;
+
                         }
                         case 4:
                         {
-                            for(int i=0;i<echipa.getNumarJucatori();i++)
-                                std::cout<<echipa.getJucatori(i)<<std::endl;
-                            break;
+
                         }
                         case 5:
                         {

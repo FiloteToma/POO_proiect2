@@ -103,6 +103,42 @@ build CMakeFiles/POO_proiect2.dir/AntrenorSecund.cpp.obj: CXX_COMPILER__POO_proi
   OBJECT_DIR = CMakeFiles\POO_proiect2.dir
   OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
 
+build CMakeFiles/POO_proiect2.dir/CaltitatiJucatori.cpp.obj: CXX_COMPILER__POO_proiect2_unscanned_Debug D$:/POO_proiect2/CaltitatiJucatori.cpp || cmake_object_order_depends_target_POO_proiect2
+  DEP_FILE = CMakeFiles\POO_proiect2.dir\CaltitatiJucatori.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\POO_proiect2.dir
+  OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
+
+build CMakeFiles/POO_proiect2.dir/Portar.cpp.obj: CXX_COMPILER__POO_proiect2_unscanned_Debug D$:/POO_proiect2/Portar.cpp || cmake_object_order_depends_target_POO_proiect2
+  DEP_FILE = CMakeFiles\POO_proiect2.dir\Portar.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\POO_proiect2.dir
+  OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
+
+build CMakeFiles/POO_proiect2.dir/Mijlocas.cpp.obj: CXX_COMPILER__POO_proiect2_unscanned_Debug D$:/POO_proiect2/Mijlocas.cpp || cmake_object_order_depends_target_POO_proiect2
+  DEP_FILE = CMakeFiles\POO_proiect2.dir\Mijlocas.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\POO_proiect2.dir
+  OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
+
+build CMakeFiles/POO_proiect2.dir/Fundas.cpp.obj: CXX_COMPILER__POO_proiect2_unscanned_Debug D$:/POO_proiect2/Fundas.cpp || cmake_object_order_depends_target_POO_proiect2
+  DEP_FILE = CMakeFiles\POO_proiect2.dir\Fundas.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\POO_proiect2.dir
+  OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
+
+build CMakeFiles/POO_proiect2.dir/Atacant.cpp.obj: CXX_COMPILER__POO_proiect2_unscanned_Debug D$:/POO_proiect2/Atacant.cpp || cmake_object_order_depends_target_POO_proiect2
+  DEP_FILE = CMakeFiles\POO_proiect2.dir\Atacant.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\POO_proiect2.dir
+  OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
+
+build CMakeFiles/POO_proiect2.dir/Jucator.cpp.obj: CXX_COMPILER__POO_proiect2_unscanned_Debug D$:/POO_proiect2/Jucator.cpp || cmake_object_order_depends_target_POO_proiect2
+  DEP_FILE = CMakeFiles\POO_proiect2.dir\Jucator.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\POO_proiect2.dir
+  OBJECT_FILE_DIR = CMakeFiles\POO_proiect2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target POO_proiect2
@@ -111,7 +147,7 @@ build CMakeFiles/POO_proiect2.dir/AntrenorSecund.cpp.obj: CXX_COMPILER__POO_proi
 #############################################
 # Link the executable POO_proiect2.exe
 
-build POO_proiect2.exe: CXX_EXECUTABLE_LINKER__POO_proiect2_Debug CMakeFiles/POO_proiect2.dir/main.cpp.obj CMakeFiles/POO_proiect2.dir/jucatori.cpp.obj CMakeFiles/POO_proiect2.dir/Staff.cpp.obj CMakeFiles/POO_proiect2.dir/Echipe.cpp.obj CMakeFiles/POO_proiect2.dir/fct.cpp.obj CMakeFiles/POO_proiect2.dir/Angajati.cpp.obj CMakeFiles/POO_proiect2.dir/Bucatar.cpp.obj CMakeFiles/POO_proiect2.dir/Maseur.cpp.obj CMakeFiles/POO_proiect2.dir/AntrenorSecund.cpp.obj
+build POO_proiect2.exe: CXX_EXECUTABLE_LINKER__POO_proiect2_Debug CMakeFiles/POO_proiect2.dir/main.cpp.obj CMakeFiles/POO_proiect2.dir/jucatori.cpp.obj CMakeFiles/POO_proiect2.dir/Staff.cpp.obj CMakeFiles/POO_proiect2.dir/Echipe.cpp.obj CMakeFiles/POO_proiect2.dir/fct.cpp.obj CMakeFiles/POO_proiect2.dir/Angajati.cpp.obj CMakeFiles/POO_proiect2.dir/Bucatar.cpp.obj CMakeFiles/POO_proiect2.dir/Maseur.cpp.obj CMakeFiles/POO_proiect2.dir/AntrenorSecund.cpp.obj CMakeFiles/POO_proiect2.dir/CaltitatiJucatori.cpp.obj CMakeFiles/POO_proiect2.dir/Portar.cpp.obj CMakeFiles/POO_proiect2.dir/Mijlocas.cpp.obj CMakeFiles/POO_proiect2.dir/Fundas.cpp.obj CMakeFiles/POO_proiect2.dir/Atacant.cpp.obj CMakeFiles/POO_proiect2.dir/Jucator.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\POO_proiect2.dir
