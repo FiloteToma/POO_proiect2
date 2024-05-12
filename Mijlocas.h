@@ -62,6 +62,9 @@ public:
             std::cout<<"Mijlocas Central: ";
         Jucator::afisare_pozitie();
     };
+    const std::string &getEficienta(){
+        return eficienta;
+    };
     void afisare_caracteristici() const override{
         std::cout<<"Eficienta: "<<eficienta<<", Dribling: "<<dribling<<", Viteza: "<<viteza<<", Forta: "<<forta<<std::endl;
     };

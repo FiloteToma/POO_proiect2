@@ -19,6 +19,13 @@ public:
     static void meniu4();
     static void meniu5();
     static void meniu();
+    static void Castigatoare(Echipe echipa1, Echipe echipa2){
+        if(echipa1.getPunctaj()>echipa2.getPunctaj())
+            std::cout<<echipa1.getNumeleEchipei();
+        else
+            std::cout<<echipa2.getNumeleEchipei();
+
+    }
     fct() = default;
 };
 

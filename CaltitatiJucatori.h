@@ -14,7 +14,7 @@ public:
     virtual void setForta(int f){};
     virtual void setPicior(std::string pic){};
     virtual void NotaJucator()=0;
-    virtual void afisare_caracteristici()  const=0;
+
 
     virtual ~CalitatiJucatori() = default;
 };

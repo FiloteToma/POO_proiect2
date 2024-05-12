@@ -14,6 +14,7 @@
 #include "Fundas.h"
 #include "Mijlocas.h"
 #include "Portar.h"
+#include <exception>
 
 void fct::meniu0()
 {
@@ -21,7 +22,8 @@ void fct::meniu0()
     std::cout<<"2.Staff"<<std::endl;
     std::cout<<"3.Jucatori"<<std::endl;
     std::cout<<"4.Afisare Echipa"<<std::endl;
-    std::cout<<"5.Iesi din aplicatie"<<std::endl<<std::endl;
+    std::cout<<"5.Afisare Punctaj Echipa"<<std::endl;
+    std::cout<<"6.Iesi din aplicatie"<<std::endl<<std::endl;
     std::cout<<"Alege:"<<std::endl;
 }
 void fct::meniu1() {
@@ -77,6 +79,8 @@ void fct::meniu() {
     Echipe echipa;
     bool m= true;
     std::cin>>echipa;
+    std::string temp;
+
 
     while (m)
     {
@@ -85,7 +89,14 @@ void fct::meniu() {
 
           meniu0();
 
-        std::cin>>alg;
+        std::cin>>temp;
+        try {
+            alg=std::stoi(temp);
+            }
+        catch(std::exception e) {
+            std::cout<<"Ati introdus gresit!"<<std::endl;
+            continue;
+        }
         switch (alg)
         {
 
@@ -96,7 +107,14 @@ void fct::meniu() {
                         while(n)
                         {
                             meniu1();
-                            std::cin>>alg1;
+                            std::cin>>temp;
+                            try {
+                                alg1=std::stoi(temp);
+                            }
+                            catch(std::exception e) {
+                                std::cout<<"Ati introdus gresit!"<<std::endl;
+                                continue;
+                            }
                             switch (alg1)
                             {
                                 case 1:
@@ -153,6 +171,10 @@ void fct::meniu() {
                                     n= false;
                                     break;
                                 }
+                                default: {
+                                    std::cout<<"Ati introdus o tasta gresita!"<<std::endl;
+                                    break;
+                                }
 
                             }
                         }
@@ -165,7 +187,14 @@ void fct::meniu() {
                 while (n)
                 {
                     meniu2();
-                    std::cin>>alg1;
+                    std::cin>>temp;
+                    try {
+                        alg1=std::stoi(temp);
+                    }
+                    catch(std::exception e) {
+                        std::cout<<"Ati introdus gresit!"<<std::endl;
+                        continue;
+                    }
                     switch (alg1)
                     {
                         case 1:
@@ -178,7 +207,14 @@ void fct::meniu() {
                                     std::cout<<"3.Angajeaza un antrenor secundar!"<<std::endl;
                                     std::cout<<"4.Inapoi"<<std::endl;
                                     std::cout<<"Alege: "<<std::endl;
-                                    std::cin>>alg2;
+                                    std::cin>>temp;
+                                    try {
+                                        alg2=std::stoi(temp);
+                                    }
+                                    catch(std::exception e) {
+                                        std::cout<<"Ati introdus gresit!"<<std::endl;
+                                        continue;
+                                    }
                                     switch (alg2) {
                                         case 1: {
                                             Angajati *angajati;
@@ -235,21 +271,29 @@ void fct::meniu() {
                                             w=false;
                                             break;
                                         }
+                                        default: {
+                                            std::cout<<"Ati introdus o tasta gresita!"<<std::endl;
+                                            break;
+                                        }
                                     }
                                 }
                             break;
                             }
                         case 2:
                             {
-                            for(int i=0;i<echipa.getNumarStaff();i++) {
-                                std::cout<<i+1<<". ";
-                                echipa.getStaff(i).afisare();
-                            }
-                            std::cout<<"Ce membru al staff-ului doriti sa concediati?"<<std::endl;
-                            int i;
-                            std::cin>>i;
-                            echipa.ConcediereStaff(i);
-                            break;
+                                if(echipa.getNumarStaff()>0) {
+                                    for(int i=0;i<echipa.getNumarStaff();i++) {
+                                        std::cout<<i+1<<". ";
+                                        echipa.getStaff(i).afisare();
+                                    }
+                                    std::cout<<"Ce membru al staff-ului doriti sa concediati?"<<std::endl;
+                                    int i;
+                                    std::cin>>i;
+                                    echipa.ConcediereStaff(i);
+                                }
+                            else
+                                std::cout<<"Nu exista staf!"<<std::endl;
+                                break;
                             }
                         case 3:
                             {
@@ -287,6 +331,10 @@ void fct::meniu() {
                                 n= false;
                                 break;
                             }
+                        default: {
+                            std::cout<<"Ati introdus o tasta gresita!"<<std::endl;
+                            break;
+                        }
                     }
                 }
                 break;
@@ -301,7 +349,14 @@ void fct::meniu() {
                     meniu3();
                     std::cout<<"Alege: "<<std::endl;
 
-                    std::cin>>agl1;
+                    std::cin>>temp;
+                    try {
+                        agl1=std::stoi(temp);
+                    }
+                    catch(std::exception e) {
+                        std::cout<<"Ati introdus gresit!"<<std::endl;
+                        continue;
+                    }
                     switch (agl1)
                     {
                         case 1:
@@ -315,7 +370,14 @@ void fct::meniu() {
                                     std::cout<<"4.Angajeaza un atacnt!"<<std::endl;
                                     std::cout<<"5.Inapoi!"<<std::endl;
                                     std::cout<<"Alege: "<<std::endl;
-                                    std::cin>>alg2;
+                                    std::cin>>temp;
+                                    try {
+                                        alg2=std::stoi(temp);
+                                    }
+                                    catch(std::exception e) {
+                                        std::cout<<"Ati introdus gresit!"<<std::endl;
+                                        continue;
+                                    }
                                     switch (alg2) {
                                         case 1: {
                                             Portar *p;
@@ -336,7 +398,7 @@ void fct::meniu() {
                                             std::cin>>grip;
                                             p=new Portar(Nume,salariu,dribling,plonjare,grip);
                                             p->NotaJucator();
-                                            echipa.AdaugareJucator(*p);
+                                            echipa.AdaugareJucator(p);
                                             break;
                                         }
                                         case 2: {
@@ -361,8 +423,7 @@ void fct::meniu() {
                                             std::cin>>picior;
                                             f=new Fundas(Nume,salariu,dribling,viteza,forta);
                                             f->NotaJucator();
-                                            Jucator juc(*f);
-                                            echipa.AdaugareJucator(juc);
+                                            echipa.AdaugareJucator(f);
                                             break;
                                         }
                                         case 3: {
@@ -387,8 +448,7 @@ void fct::meniu() {
                                             std::cin>>picior;
                                             m=new Mijlocas(Nume,salariu,dribling,viteza,forta);
                                             m->NotaJucator();
-                                            Jucator juc(*m);
-                                            echipa.AdaugareJucator(juc);
+                                            echipa.AdaugareJucator(m);
                                             break;
                                         }
                                         case 4: {
@@ -410,12 +470,15 @@ void fct::meniu() {
                                             std::cin>>viteza;
                                             a=new Atacant(Nume,salariu,dribling,viteza,forta);
                                             a->NotaJucator();
-                                            Jucator juc(*a);
-                                            echipa.AdaugareJucator(juc);
+                                            echipa.AdaugareJucator(a);
                                             break;
                                         }
                                         case 5: {
                                             w=false;
+                                            break;
+                                        }
+                                        default: {
+                                            std::cout<<"Ati introdus o tasta gresita!"<<std::endl;
                                             break;
                                         }
                                     }
@@ -424,20 +487,28 @@ void fct::meniu() {
                         }
                         case 2:
                         {
-
-
+                            echipa.AfisareJucatori();
+                            echipa.ConcediereJucator();
+                            break;
                         }
                         case 3:
                         {
-
+                            std::cout<<echipa.BugetSalariiJucatori();
+                            std::cout<<std::endl;
+                            break;
                         }
                         case 4:
                         {
-
+                            echipa.AfisareJucatori();
+                            break;
                         }
                         case 5:
                         {
                             n= false;
+                            break;
+                        }
+                        default: {
+                            std::cout<<"Ati introdus o tasta gresita!"<<std::endl;
                             break;
                         }
 
@@ -450,9 +521,18 @@ void fct::meniu() {
                 std::cout<<echipa;
                 break;
             }
-            case 5:
+            case 5: {
+                std::cout<<echipa.Punctaj()<<std::endl;
+                break;
+            }
+            case 6:
             {
+                std::cout<<echipa.getPunctaj();
                 m= false;
+                break;
+            }
+            default: {
+                std::cout<<"Ati introdus o tasta gresita!"<<std::endl;
                 break;
             }
 

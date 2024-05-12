@@ -50,6 +50,7 @@ public:
         return nume;
     }
     const int &getSalariu();
+
     ~Jucatori() {}
 };
 

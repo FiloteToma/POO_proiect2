@@ -48,6 +48,9 @@ public:
             eficienta="Slab";
     };
 
+    const std::string &getEficienta(){
+        return eficienta;
+    };
     void afisare_pozitie() const override {
         std::cout<<"Atacant: ";
         Jucator::afisare_pozitie();

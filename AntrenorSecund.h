@@ -24,6 +24,7 @@ public:
         std::cout<<"Antrenorul secund "<<this->Nume<<" a mai fost la "<<this->EchipeAntrenate<<" echipe inainte!";
     }
 
+
     ~AntrenorSecund() = default;
 };
 

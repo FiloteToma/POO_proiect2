@@ -9,21 +9,78 @@
 #include "Maseur.h"
 #include <memory>
 #include "Portar.h"
-void Echipe::AdaugareJucator(const Jucator &juc) {
+void Echipe::AdaugareJucator(Jucator *juc) {
     NumarJucatori++;
     jucator.push_back(juc);
+}
+void Echipe::ConcediereJucator() {
+    if(NumarJucatori>0)
+    {   std::cout<<std::endl<<"Ce jucator vreti sa concedioati?"<<std::endl<<"Alege jucatorul: ";
+        int j;
+        std::cin>>j;
+        int ok=0;
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Portar *p=dynamic_cast<Portar*>(jucator[i]);
+            if(p!=nullptr) {
+                ok++;
+                if(ok==j) {
+                    jucator.erase(jucator.begin()+i);
+                    NumarJucatori--;
+                }
+            }
+        }
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Fundas *f=dynamic_cast<Fundas*>(jucator[i]);
+            if(f!=nullptr) {
+                ok++;
+                if(ok==j) {
+                    jucator.erase(jucator.begin()+i);
+                    NumarJucatori--;
+                }
+            }
+        }
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Mijlocas *m=dynamic_cast<Mijlocas*>(jucator[i]);
+            if(m!=nullptr) {
+                ok++;
+                if(ok==j) {
+                    jucator.erase(jucator.begin()+i);
+                    NumarJucatori--;
+                }
+            }
+        }
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Atacant *a=dynamic_cast<Atacant*>(jucator[i]);
+            if(a!=nullptr) {
+                ok++;
+                if(ok==j) {
+                    jucator.erase(jucator.begin()+i);
+                    NumarJucatori--;
+                }
+            }
+        }
+        std::cout<<std::endl;
+    }
 }
 int Echipe::BugetSalarii()
 {
     int s;
-    s=SalariuAntrenor+BugetStafff;
+    s=SalariuAntrenor+BugetStafff+this->BugetSalariiJucatori();
 
 
     return s;
 }
 int Echipe::BugetSalariiJucatori()
 {
-
+    int s;
+    s=0;
+    for(int i=0;i<NumarJucatori;i++)
+        s=s+jucator[i]->getSalariu();
+    return s;
 }
 void Echipe::SchimbareAntrenor(const std::string &NumeAntrenor,const int &salariu)
 {

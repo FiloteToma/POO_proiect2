@@ -36,6 +36,7 @@ public:
     void setDribling(int d) override {
         dribling=d;
     };
+
     void setGrip(int g) override {
         grip=g;
     };
@@ -54,6 +55,9 @@ public:
             eficienta="Bun";
         else
             eficienta="Slab";
+    };
+    const std::string &getEficienta(){
+        return eficienta;
     };
 
     ~Portar() override = default;
