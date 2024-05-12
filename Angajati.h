@@ -1,11 +1,6 @@
-//
-// Created by filot on 28.04.2024.
-//
-
 #ifndef ANGAJATI_H
 #define ANGAJATI_H
 #include <iostream>
-
 
 class Angajati {
 protected:
@@ -17,14 +12,10 @@ public:
           salariu(salariu) {
     }
     virtual void aptitudini() const=0;
-    virtual void afisare() const {
-        std::cout<<" | Nume: "<<Nume<<" | Salariu: "<<salariu<<std::endl;
-    }
-    int getSalariu() const { return salariu; }
-    const std::string& getNume() const { return Nume; }
+    virtual void afisare() const;
+    int getSalariu() const;
+    const std::string& getNume() const;
     virtual ~Angajati() = default;
 };
 
-
-
-#endif //ANGAJATI_H
+#endif

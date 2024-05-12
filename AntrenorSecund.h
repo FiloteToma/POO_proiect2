@@ -1,12 +1,7 @@
-//
-// Created by filot on 28.04.2024.
-//
-
 #ifndef ANTRENORSECUND_H
 #define ANTRENORSECUND_H
 #include <iostream>
 #include"Angajati.h"
-
 
 class AntrenorSecund: public Angajati {
 protected:
@@ -16,18 +11,11 @@ public:
         : Angajati(nume, salariu),
           EchipeAntrenate(echipe_antrenate) {
     }
-    void afisare() const override {
-        std::cout<<"Meserie: antrenor secund";
-        Angajati::afisare();
-    }
-    void aptitudini() const override {
-        std::cout<<"Antrenorul secund "<<this->Nume<<" a mai fost la "<<this->EchipeAntrenate<<" echipe inainte!";
-    }
 
+    void afisare() const override;
+    void aptitudini() const override;
 
     ~AntrenorSecund() = default;
 };
-
-
 
 #endif //ANTRENORSECUND_H

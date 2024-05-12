@@ -2,7 +2,6 @@
 #define CALTITATIJUCATORI_H
 #include <iostream>
 
-
 class CalitatiJucatori{
 public:
     CalitatiJucatori() = default;
@@ -15,9 +14,7 @@ public:
     virtual void setPicior(std::string pic){};
     virtual void NotaJucator()=0;
 
-
     virtual ~CalitatiJucatori() = default;
 };
-
 
 #endif

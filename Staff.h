@@ -11,22 +11,14 @@ public:
     explicit Staff(Angajati *angajat)
         : angajat(angajat) {
     }
+
     friend std::ostream &operator<<(std::ostream  &out, const Staff &staff) {
         out<< staff.getNume();
-
     }
-    void afisare() const {
-        angajat->afisare();
-    }
-    void aptitudini() const{
-        angajat->aptitudini();
-    }
-    int getSalariu() const {
-        return angajat->getSalariu();
-    }
-    const  std::string &getNume() const {
-        return angajat->getNume();
-    }
+    void afisare() const;
+    void aptitudini() const;
+    int getSalariu() const;
+    const  std::string &getNume() const;
     const int &getAptitudini();
     ~Staff() = default;
 };

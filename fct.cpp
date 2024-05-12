@@ -527,7 +527,6 @@ void fct::meniu() {
             }
             case 6:
             {
-                std::cout<<echipa.getPunctaj();
                 m= false;
                 break;
             }

@@ -1,14 +1,110 @@
-//
-// Created by filot on 26.04.2024.
-//
-
 #include "Echipe.h"
 #include "Angajati.h"
 #include "Bucatar.h"
-#include "jucatori.h"
-#include "Maseur.h"
-#include <memory>
 #include "Portar.h"
+
+void Echipe::AfisareJucatori() {
+    if(NumarJucatori>0)
+    {   std::cout<<"Jucatori: "<<std::endl;
+        int ok=0;
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Portar *p=dynamic_cast<Portar*>(jucator[i]);
+            if(p!=nullptr) {
+                ok++;
+                std::cout<<ok<<". ";
+                p->afisare_pozitie();
+            }
+        }
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Fundas *f=dynamic_cast<Fundas*>(jucator[i]);
+            if(f!=nullptr) {
+                ok++;
+                std::cout<<ok<<". ";
+                f->afisare_pozitie();
+            }
+        }
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Mijlocas *m=dynamic_cast<Mijlocas*>(jucator[i]);
+            if(m!=nullptr) {
+                ok++;
+                std::cout<<ok<<". ";
+                m->afisare_pozitie();
+            }
+        }
+        for(int i=0;i<NumarJucatori;i++)
+        {
+            Atacant *a=dynamic_cast<Atacant*>(jucator[i]);
+            if(a!=nullptr) {
+                ok++;
+                std::cout<<ok<<". ";
+                a->afisare_pozitie();
+            }
+        }
+        std::cout<<std::endl;
+    }
+    else
+        std::cout<<"Echipa nu are jucatori!"<<std::endl;
+
+}
+int Echipe::Punctaj() {
+    Punctajj=0;
+
+
+    for(int i=0;i<NumarJucatori;i++)
+    {
+        Portar *p=dynamic_cast<Portar*>(jucator[i]);
+        if(p!=nullptr) {
+            if(p->getEficienta()=="Foarte Bun")
+                Punctajj=Punctajj+2;
+            else if(p->getEficienta()=="Bun")
+                Punctajj++;
+        }
+    }
+
+    for(int i=0;i<NumarJucatori;i++)
+    {
+        Fundas *f=dynamic_cast<Fundas*>(jucator[i]);
+        if(f!=nullptr) {
+            if(f->getEficienta()=="Foarte Bun")
+                Punctajj=Punctajj+2;
+            else if(f->getEficienta()=="Bun")
+                Punctajj++;
+        }
+    }
+
+    for(int i=0;i<NumarJucatori;i++)
+    {
+        Mijlocas *m=dynamic_cast<Mijlocas*>(jucator[i]);
+        if(m!=nullptr) {
+            if(m->getEficienta()=="Foarte Bun")
+                Punctajj=Punctajj+2;
+            else if(m->getEficienta()=="Bun")
+                Punctajj++;
+        }
+    }
+
+    for(int i=0;i<NumarJucatori;i++)
+    {
+        Atacant *a=dynamic_cast<Atacant*>(jucator[i]);
+        if(a!=nullptr) {
+            if(a->getEficienta()=="Foarte Bun")
+                Punctajj=Punctajj+2;
+            else if(a->getEficienta()=="Bun")
+                Punctajj++;
+        }
+    }
+    return Punctajj;
+}
+void Castigatoare(Echipe echipa1, Echipe echipa2){
+    if(echipa1.getPunctaj()>echipa2.getPunctaj())
+        std::cout<<echipa1.getNumeleEchipei();
+    else
+        std::cout<<echipa2.getNumeleEchipei();
+
+}
 void Echipe::AdaugareJucator(Jucator *juc) {
     NumarJucatori++;
     jucator.push_back(juc);
@@ -126,7 +222,6 @@ const Jucator& Echipe::getJucator(const int &numar)
 {
 
 }
-
 const int& Echipe::getNumarJucatori()
 {
     return NumarJucatori;
@@ -134,8 +229,18 @@ const int& Echipe::getNumarJucatori()
 const int& Echipe::getBugetStafff() {
     return BugetStafff;
 }
+const std::string& Echipe::getNumeleEchipei() {
+    return NumeEchipa;
+}
+int Echipe::getPunctaj() {
+    return Punctajj;
+}
 void Echipe::BugetStaff(Angajati &angajati) {
     BugetStafff=BugetStafff+angajati.getSalariu();
+}
+const Staff& Echipe::getStaff(const int &numar) const
+{
+    return staff[numar];
 }
 void Echipe::ConcediereStaff(const int &numar) {
     staff.erase(staff.begin()+numar-1);
